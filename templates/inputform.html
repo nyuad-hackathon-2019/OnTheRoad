@@ -15,25 +15,37 @@
   <form action="">
   <div class="row">
 	  <div class="col-25">
-        <label for="type">النوع</label>
+        <label for="type">Type النوع</label>
 	  </div>
 	 <div class="col-75">
         <select id="type" name="type">
-       	  <option value="1">حادث سيارة</option>
-          <option value="2">نقطة تفتيش</option>
-          <option value="3">مواجهات</option>
+       	  <option value="1">Car Accident حادث سيارة</option>
+          <option value="2"> Checkpoint نقطة تفتيش</option>
+          <option value="3">Confrontation مواجهات</option>
         </select>
       </div>
-
+    </div>
+    <div class="row">
+        <div class="col-25">
+            <label for="type">Severity الخطورة</label>
+        </div>
+    <div class="col-75">
+      <select id="severity" name="type">
+         <option value="1">Dangerous خطر</option>
+        <option value="2">Moderate متوسط</option>
+        <option value="3">Normal عادي</option>
+      </select>
+    </div>
+      </div>
     </div>
 	<div class="row">
 	  <div class="col-25">
-        <label for="type">المكان</label>
+        <label for="type">Location المكان</label>
 	  </div>
 	 <div class="col-75">
-        <select id="lockation" name="type">
-       	  <option value="1">مكاني</option>
-          <option value="2">غير ذالك</option>
+        <select id="location" name="type">
+       	  <option value="1"> My Location مكاني</option>
+          <option value="2"> Other غير ذلك</option>
           
         </select>
       </div>
@@ -47,9 +59,13 @@
         <textarea id="place" name="place" placeholder="اذا كان خيارك غير ذالك" style="height:200px"></textarea>
       </div>
     </div>
-    <div class="row">
-      <input type="submit" value="أرسل">
+    <!--<div class="row">
+     <input href="http://localhost:5000/" type="submit" value="أرسل" >
     </div>
+    <a>
+
+    </a>-->
+    <a href="http://localhost:5000/"><button type="button" >Submit</button></a>
   </form>
 </div>
 
