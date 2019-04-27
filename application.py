@@ -19,12 +19,11 @@ import json
 import httplib2
 import requests
 from oauth2client.client import flow_from_clientsecrets, FlowExchangeError
-from setupDB import Location
+#from setupDB import Location
 
 
 app = Flask(__name__)
 
-<<<<<<< HEAD
 ACCOUNT_SID = 'AC94a1765a13973ddfa4420c0d35d6ab4e'
 AUTH_TOKEN = 'e67261b76d3969e46a209a589fab2b69'
 PHONE = '+16266002278'
