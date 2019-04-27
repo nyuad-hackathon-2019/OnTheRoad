@@ -35,7 +35,7 @@ PHONE = '+16266002278'
 PHONE2 = '+971505250332'
 
 client = Client(ACCOUNT_SID, AUTH_TOKEN)
-JOB_REQUEST = "حاجز على طريق عيون الحرامية"
+Message = "حاجز على طريق عيون الحرامية"
 
 
 # Connect to Database
@@ -49,14 +49,13 @@ JOB_REQUEST = "حاجز على طريق عيون الحرامية"
 @app.route('/')
 @app.route('/catalog')
 def showCategories():
-    #new_message = client.messages.create(to="+971505250332", from_="+16266002278", body=JOB_REQUEST)
-    #new_message = client.messages.create(to="+5491159977808", from_="+16266002278", body=JOB_REQUEST)
-
     return render_template(
         'index.html')
 
 @app.route('/templates/inputform.html')
 def showInput():
+    #new_message = client.messages.create(to="+971505250332", from_="+16266002278", body=Message)
+    #new_message = client.messages.create(to="+5491159977808", from_="+16266002278", body=Message)
     return render_template(
         'inputform.html')
 

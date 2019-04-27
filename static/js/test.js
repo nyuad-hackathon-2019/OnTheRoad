@@ -83,7 +83,7 @@ function AppViewModel(){
         });   
 
         var placeMarker = function (location) {
-            var options = { position: location, map: map };
+            var options = { title: 'Confrontation',position: location, map: map };
             var marker = new google.maps.Marker(options);
 
             //marker.setMap(map);
