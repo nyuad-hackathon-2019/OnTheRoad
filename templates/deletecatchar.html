@@ -1,0 +1,16 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="row">
+	<div class="category-char col-sm-7">
+		<h3 class="page-header">
+				<span>Delete Character/s</span>
+			</h3>
+		<form action="#" method="post">
+			<h5 class="category-char__message">Are you sure you want to delete {{catChar.name}}?</h5>
+			<a href="{{url_for('showCatChar', catalog_id = catChar.category_id ,char_id = catChar.id )}}" class="btn btn-primary btn-space">Back</a>
+			<input class="btn btn-primary btn-space" type="submit" value="Delete" role="button">
+		</form>
+	</div>
+</div>
+
+{% endblock %}
