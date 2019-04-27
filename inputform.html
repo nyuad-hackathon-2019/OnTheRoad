@@ -2,97 +2,34 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-* {
-  box-sizing: border-box;
-}
 
-input[type=text], select, textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
-}
+ <link rel="stylesheet" href="css/form.css">
 
-label {
-  padding: 12px 12px 12px 0;
-  display: inline-block;
-  text-align:center;
-}
-
-input[type=submit] {
-  background-color: #4CAF50;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  float: right;
-}
-
-input[type=submit]:hover {
-  background-color: #45a049;
-}
-
-.container {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-}
-
-.col-25 {
-  float: right;
-  width: 25%;
-  margin-top: 6px;
-}
-
-.col-75 {
-  float: right;
-  width: 75%;
-  margin-top: 6px;
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-
-@media screen and (max-width: 600px) {
-  .col-25, .col-75, input[type=submit] {
-    width: 100%;
-    margin-top: 0;
-  }
-}
-</style>
 </head>
 <body>
 
-<h2>Report an Event	الإبلاغ عن حدث</h2>
+<h2><center>Report an Event	الإبلاغ عن حدث</center></h2>
 
 
 <div class="container">
   <form action="">
   <div class="row">
-	<div class="col-25">
+	  <div class="col-25">
         <label for="type">النوع</label>
-    </div>
+	  </div>
 	 <div class="col-75">
         <select id="type" name="type">
        	  <option value="1">حادث سيارة</option>
           <option value="2">نقطة تفتيش</option>
-          <option value="3">تدخل عسكري</option>
+          <option value="3">مواجهات</option>
         </select>
       </div>
-	  
+
     </div>
 	<div class="row">
-	<div class="col-25">
+	  <div class="col-25">
         <label for="type">المكان</label>
-    </div>
+	  </div>
 	 <div class="col-75">
         <select id="lockation" name="type">
        	  <option value="1">مكاني</option>
@@ -100,15 +37,13 @@ input[type=submit]:hover {
           
         </select>
       </div>
-	  
+	
     </div>
 	<div class="row">
-      <div class="col-25">
-	    
-      </div>
+     
     </div>
     <div class="row">
-      <div class="col-75">
+      <div>
         <textarea id="place" name="place" placeholder="اذا كان خيارك غير ذالك" style="height:200px"></textarea>
       </div>
     </div>
