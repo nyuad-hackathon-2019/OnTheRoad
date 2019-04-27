@@ -73,6 +73,10 @@ def showCategories():
     return render_template(
         'index.html')
 
+@app.route('/templates/inputform.html')
+def showInput():
+    return render_template(
+        'inputform.html')
 
 @app.route('/catalog/<int:catalog_id>')
 @app.route('/catalog/<int:catalog_id>/chars')
