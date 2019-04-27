@@ -1,0 +1,31 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="row">
+	<div class="category-char col-sm-7">
+		<h3 class="page-header">
+				<span>Edit Character</span>
+			</h3>
+		<form action="#" method="post" class="category-char__form">
+			<fieldset>
+				<label for="char-name">Name</label>
+				<input type="text" name="name" value="{{catChar.name}}" id="char-name" class="form-control">
+				<label for="char-description">Description:</label>
+				<textarea name="description" id="char-description" rows="3" class="form-control">{{catChar.description}}</textarea>
+				<label for="char-category">Category</label>
+				<select class="form-control" name="category" id="char-category">
+						{% for category in categories %}
+							{% if catChar.category_id == category.id %}
+								<option selected value="{{category.id}}">{{category.name}}</option>
+							{% else %}
+								<option value="{{category.id}}">{{category.name}}</option>
+							{% endif %}
+						{% endfor %}
+					</select>
+			</fieldset>
+			<a href="{{url_for('showCatChar', catalog_id = catChar.category_id ,char_id = catChar.id )}}" class="btn btn-primary btn-space">Back</a>
+			<input class="btn btn-primary btn-space" type="submit" value="Save" role="button">
+		</form>
+	</div>
+</div>
+
+{% endblock %}
