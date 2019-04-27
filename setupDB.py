@@ -26,7 +26,7 @@ class SMS(Base):
             'id': self.id,
             'locationID': self.locationID,
             'level': self.level,
-            'timestamp': self.timestamp,
+            'timestamp': self.timestamp
 
         }
 
@@ -36,7 +36,7 @@ class User(Base):
     __tablename__ = 'user'
 
     id = Column(Integer, primary_key=True)
-    phone = Column(String(250, nullable=False))
+    phone = Column(String(250))
 
 
 # create item table
@@ -55,7 +55,7 @@ class Location(Base):
             'name': self.name,
             'Longitude': self.long,
             'Latitude': self.Lat,
-            'id': self.id,
+            'id': self.id
         }
 
 

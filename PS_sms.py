@@ -23,7 +23,7 @@ def hello():
 def send_sms():
   global client
   global STATE
-  print 'Sending a message...'
+  print ("Sending a message...")
   new_message = client.messages.create(to=PHONE2, from_='+16266002278', body=WARNING_TITLE)
   STATE = "WARNING"
   return "Thank you!"

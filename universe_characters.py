@@ -317,4 +317,4 @@ session.commit()
 
 categories = session.query(Category).all()
 for category in categories:
-    print "Category: " + category.name
+    print ("Category: " + category.name)

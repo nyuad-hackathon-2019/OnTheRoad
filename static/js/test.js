@@ -44,12 +44,11 @@ function AppViewModel(){
                 var content =
                     '<div>'
                     +'<h4>' + marker.title + '</h4>'
-                    +'<h4>' + category + '</h4>'
                     + '<div>'
-                    +  '<h6> Address: </h6> '
-                    +  '<h8>'+address0+'</h8> <br>'
-                    +  '<h8>'+address1+'</h8> <br>'
-                    +  '<h8>'+address2+'</h8> <br>'
+                    +  '<h6> Time: ' +  '</h6> ' // marker.time +
+                    +  '<h8> Severity: '+ '</h8> <br>' // marker.severity +
+                    //+  '<h8>'+address1+'</h8> <br>'
+                    //+  '<h8>'+address2+'</h8> <br>'
                     + '</div>'
                     + '</div>';
 
@@ -108,9 +107,24 @@ function AppViewModel(){
           this.markers.push(marker);
           // Create an onclick event to open the large infowindow at each marker.
           //this.marker.addListener('click', self.popUp);
+          
+
           google.maps.event.addListener(marker, 'click', (function(marker, i) {
             return function() {
-              largeInfowindow.setContent(locations[i].title);
+              
+              var content =
+                '<div>'
+                +'<h4>' + locations[i].title + '</h4>'
+                //+'<h4>' + category + '</h4>'
+                + '<div>'
+                +  '<h6> Threat level: </h6> '
+                //+  '<h8>'+address0+'</h8> <br>'
+                //+  '<h8>'+address1+'</h8> <br>'
+                //+  '<h8>'+address2+'</h8> <br>'
+                + '</div>'
+                + '</div>';
+
+              largeInfowindow.setContent(content);
               largeInfowindow.open(map, marker);
             }
           })(marker, i));
