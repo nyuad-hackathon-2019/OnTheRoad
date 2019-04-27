@@ -13,6 +13,12 @@ function AppViewModel(){
       'Checkpoint': "http://maps.google.com/mapfiles/ms/icons/purple-dot.png",
       'Confrontation': "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
     }
+    var request = new XMLHttpRequest();
+    request.open("GET", "/static/data.json", false);
+    request.send(null)
+    var my_JSON_object = JSON.parse(request.responseText);
+    alert (my_JSON_object.najeeb[0]);
+
     var locations = [
         {title: 'Car Accident', location: {lat:31.447446,lng:35.025766}},
         {title: 'Car Accident', location: {lat:32.047791,lng:35.462557}},
