@@ -23,7 +23,7 @@ CLIENT_ID = json.loads(open('client_secrets.json', 'r').read())[
     'web']['client_id']
 
 # Connect to Database
-engine = create_engine('sqlite:///charcatalog.db')
+engine = create_engine('sqlite:///charcatalog.db',connect_args={'check_same_thread': False})
 Base.metadata.bind = engine
 
 # Create database session
@@ -65,15 +65,13 @@ def showCategories():
     # Get latest category characters added
     catChars = session.query(CatChar).all()
     # Check if user is logged in
-    if 'username' not in login_session:
-        return render_template('publicCategories.html',
-                               categories=categories,
-                               catChars=catChars)
-    else:
-        return render_template(
-            'categories.html',
-            categories=categories,
-            catChars=catChars)
+    # if 'username' not in login_session:
+    #     return render_template('publicCategories.html',
+    #                            categories=categories,
+    #                            catChars=catChars)
+    # else:
+    return render_template(
+        'index.html')
 
 
 @app.route('/catalog/<int:catalog_id>')
