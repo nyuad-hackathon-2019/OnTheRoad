@@ -6,31 +6,93 @@ API Course, Lesson 1 -->
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
  <link rel="stylesheet" href="/static/css/app.css">
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <title> عالطريق </title>
+ <style>
+        body {
+          font-family: "Lato", sans-serif;
+        }
+        
+        .sidebar {
+          height: 100%;
+          width: 0;
+          position: fixed;
+          z-index: 1;
+          top: 0;
+          left: 0;
+          background-color: #111;
+          overflow-x: hidden;
+          transition: 0.5s;
+          padding-top: 60px;
+        }
+        
+        .sidebar a {
+          padding: 8px 8px 8px 32px;
+          text-decoration: none;
+          font-size: 25px;
+          color: #818181;
+          display: block;
+          transition: 0.3s;
+        }
+        
+        .sidebar a:hover {
+          color: #f1f1f1;
+        }
+        
+        .sidebar .closebtn {
+          position: absolute;
+          top: 0;
+          right: 25px;
+          font-size: 36px;
+          margin-left: 50px;
+        }
+        
+        .openbtn {
+          font-size: 20px;
+          cursor: pointer;
+          background-color: #111;
+          color: white;
+          padding: 10px 15px;
+          border: none;
+        }
+        
+        .openbtn:hover {
+          background-color: #444;
+        }
+        
+        #main {
+          transition: margin-left .5s;
+          padding: 16px;
+        }
+        
+        
+        </style>
  </head>
  <body>
    
         <div class="container-fluid h-100">
                 <div class="row h-100">
+                        <div id="mySidebar" class="sidebar">
+                                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+                                <h6 class="text-white" > عالطريق </h4> 
+                                <input  data-bind="textInput: searchInput"  placeholder="Filter by accident type ... ">
+                                <ul class="nav flex-column" data-bind="foreach: venuesfilter">
+                                        <a href="#"><li class="nav-item text-white " data-bind="text: title, click: $parent.popUp"></li></a>            
+                                    
+                            
+                                    </ul>
+                                </div>
                     <main class="col p-0 navbar-inverse">
-                        <a href class="float-right m-3 navbar-light" data-target="#sidebar" data-toggle="collapse">
-                            <span class="navbar-toggler-icon"></span>
+                        <a href class="float-right m-3 navbar-expand-lg navbar-light" data-target="#sidebar" data-toggle="collapse">
+                            <span class="navbar-toggler-icon"  onclick="openNav()"></span>
                         </a>
                         <div class="content bg-inverse">
                             <div id="map">
                             </div>
                         </div>
                     </main>
-                    <nav class="col-2 collapse bg-inverse pt-2 h-100 " id="sidebar">
-                        <h6 class="text-white" > عالطريق </h4> 
-                        <a href="/templates/inputform.html">شاركني</a> 
-                        <input  data-bind="textInput: searchInput"  placeholder="Filter by accident type ... ">
-                        <ul class="nav flex-column" data-bind="foreach: venuesfilter">
-                                <a href="#"><li class="nav-item text-white " data-bind="text: title, click: $parent.popUp"></li></a>            
-            
-                            </ul>
-                    </nav>
+                   
                 </div>
             </div>
         
@@ -43,6 +105,17 @@ API Course, Lesson 1 -->
 <script
       src="/static/js/knockout-3.4.2.js" charset="utf-8">
 </script>
+<script>
+        function openNav() {
+          document.getElementById("mySidebar").style.width = "250px";
+          document.getElementById("main").style.marginLeft = "250px";
+        }
+        
+        function closeNav() {
+          document.getElementById("mySidebar").style.width = "0";
+          document.getElementById("main").style.marginLeft= "0";
+        }
+        </script>
 
 <script
       src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
