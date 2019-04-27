@@ -65,6 +65,10 @@ def showRoad():
     return render_template('index.html', Locations=Locations)
 
 
+@app.route('/templates/inputform.html')
+def showInput():
+    return render_template(
+        'inputform.html')
 
 @app.route('/catalog/<int:catalog_id>')
 @app.route('/catalog/<int:catalog_id>/chars')
