@@ -19,11 +19,11 @@ from oauth2client.client import flow_from_clientsecrets, FlowExchangeError
 
 app = Flask(__name__)
 
-CLIENT_ID = json.loads(open('client_secrets.json', 'r').read())[
-    'web']['client_id']
+#CLIENT_ID = json.loads(open('client_secrets.json', 'r').read())[
+#    'web']['client_id']
 
 # Connect to Database
-engine = create_engine('sqlite:///charcatalog.db',connect_args={'check_same_thread': False})
+engine = create_engine('sqlite:///Road.db')
 Base.metadata.bind = engine
 
 # Create database session
@@ -32,46 +32,38 @@ session = DBSession()
 
 # User Helper Functions
 
-
-def createUser(login_session):
-    newUser = User(
-        name=login_session['username'],
-        email=login_session['email'],
-        picture=login_session['picture'])
-    session.add(newUser)
-    session.commit()
-    user = session.query(User).filter_by(email=login_session['email']).one()
-    return user.id
-
-
-def getUserInfo(user_id):
-    user = session.query(User).filter_by(id=user_id).one()
-    return user
+# User Helper Functions
+#def createUser(login_session):
+#    newUser = User(
+#        name=login_session['username'],
+#        email=login_session['email'],
+#        picture=login_session['picture'])
+#    session.add(newUser)
+#    session.commit()
+#    user = session.query(User).filter_by(email=login_session['email']).one()
+#    return user.id
 
 
-def getUserID(email):
-    try:
-        user = session.query(User).filter_by(email=email).one()
-        return user.id
-    except BaseException:
-        return None
+#def getUserInfo(user_id):
+#    user = session.query(User).filter_by(id=user_id).one()
+#    return user
 
+
+#def getUserID(email):
+#    try:
+#        user = session.query(User).filter_by(email=email).one()
+#        return user.id
+#    except BaseException:
+#        return None
 
 @app.route('/')
-@app.route('/catalog')
-def showCategories():
+@app.route('/Road')
+def showRoad():
     # Get all categories
-    categories = session.query(Category).all()
-    # Get latest category characters added
-    catChars = session.query(CatChar).all()
+    Locations = session.query(Location).all()
     # Check if user is logged in
-    # if 'username' not in login_session:
-    #     return render_template('publicCategories.html',
-    #                            categories=categories,
-    #                            catChars=catChars)
-    # else:
-    return render_template(
-        'index.html')
+    return render_template('index.html', Locations=Locations)
+
 
 
 @app.route('/catalog/<int:catalog_id>')
