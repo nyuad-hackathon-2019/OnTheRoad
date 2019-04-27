@@ -1,3 +1,4 @@
+import os
 import sys
 from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
@@ -7,52 +8,58 @@ from sqlalchemy import create_engine
 Base = declarative_base()
 
 
+# create category table
+class SMS(Base):
+    __tablename__ = 'sms'
+
+    id = Column(Integer, primary_key=True)
+    title = Column(String(400), nullable=False)
+    locationID = Column(String(400), nullable=False)
+    level = Column(String(400), nullable=False)
+    timestamp = Column(String(400), nullable=False)
+
+    @property
+    def serialize(self):
+        """Return object data in easily serializeable format"""
+        return {
+            'title': self.title,
+            'id': self.id,
+            'locationID': self.locationID,
+            'level': self.level,
+            'timestamp': self.timestamp
+
+        }
+
+
+# create uset table
 class User(Base):
     __tablename__ = 'user'
 
     id = Column(Integer, primary_key=True)
-    name = Column(String(250), nullable=False)
-    email = Column(String(250), nullable=False)
-    picture = Column(String(250))
+    phone = Column(String(250))
 
 
-class Category(Base):
-    __tablename__ = 'category'
+# create item table
+class Location(Base):
+    __tablename__ = 'location'
 
-    id = Column(Integer, primary_key=True)
     name = Column(String(80), nullable=False)
-    user_id = Column(Integer, ForeignKey('user.id'))
-    user = relationship(User)
+    id = Column(Integer, primary_key=True)
+    Long = Column(String(400))
+    Lat = Column(String(400))
 
     @property
     def serialize(self):
         """Return object data in easily serializeable format"""
         return {
-            'id': self.id,
             'name': self.name,
+            'Longitude': self.long,
+            'Latitude': self.Lat,
+            'id': self.id
         }
 
 
-class CatChar(Base):
-    __tablename__ = 'cat_char'
-
-    name = Column(String(80), nullable=False)
-    description = Column(String(250))
-    id = Column(Integer, primary_key=True)
-    category_id = Column(Integer, ForeignKey('category.id'))
-    category = relationship(Category)
-    user_id = Column(Integer, ForeignKey('user.id'))
-    user = relationship(User)
-
-    @property
-    def serialize(self):
-        """Return object data in easily serializeable format"""
-        return {
-            'category': self.category.name,
-            'description': self.description,
-            'name': self.name,
-        }
+engine = create_engine('sqlite:///catalog.db')
 
 
-engine = create_engine('sqlite:///charcatalog.db')
 Base.metadata.create_all(engine)

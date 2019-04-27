@@ -14,9 +14,10 @@ class SMS(Base):
 
     id = Column(Integer, primary_key=True)
     title = Column(String(400), nullable=False)
-    locationID = Column(String(400), nullable=False)
     level = Column(String(400), nullable=False)
     timestamp = Column(String(400), nullable=False)
+    Long = Column(String(400))
+    Lat = Column(String(400))
 
     @property
     def serialize(self):
@@ -24,9 +25,11 @@ class SMS(Base):
         return {
             'title': self.title,
             'id': self.id,
-            'locationID': self.locationID,
             'level': self.level,
-            'timestamp': self.timestamp
+            'Longitude' : self.Long,
+            'Latidude' : self.Lat,
+            'timestamp': self.timestamp,
+            
 
         }
 
@@ -39,24 +42,9 @@ class User(Base):
     phone = Column(String(250))
 
 
-# create item table
-class Location(Base):
-    __tablename__ = 'location'
 
-    name = Column(String(80), nullable=False)
-    id = Column(Integer, primary_key=True)
-    Long = Column(String(400))
-    Lat = Column(String(400))
 
-    @property
-    def serialize(self):
-        """Return object data in easily serializeable format"""
-        return {
-            'name': self.name,
-            'Longitude': self.long,
-            'Latitude': self.Lat,
-            'id': self.id
-        }
+   
 
 
 engine = create_engine('sqlite:///catalog.db')
