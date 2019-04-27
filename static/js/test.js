@@ -75,12 +75,31 @@ function AppViewModel(){
 
     // loading map to the view 
     this.initMap = function () {
+        var largeInfowindow = new google.maps.InfoWindow();
+
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat:31.863903, lng:35.164375 },
           zoom: 8
         });   
 
-        var largeInfowindow = new google.maps.InfoWindow();
+        var placeMarker = function (location) {
+            var options = { position: location, map: map };
+            var marker = new google.maps.Marker(options);
+
+            //marker.setMap(map);
+            //this.markers.push(marker);
+
+            largeInfowindow.setContent(
+               '<div>'
+                + '<a href="/templates/inputform.html">شاركني</a>'
+                + '</div>'
+              );
+            largeInfowindow.open(map, marker);
+        };
+
+        google.maps.event.addListener(map, 'click', function(event) {
+            placeMarker(event.latLng);
+        });
     
     
     for (var i = 0; i < locations.length; i++) {
