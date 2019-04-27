@@ -24,6 +24,10 @@ from oauth2client.client import flow_from_clientsecrets, FlowExchangeError
 
 app = Flask(__name__)
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> cc515ba64f00a3fe69ae8cdbd9470c7b1af8ce4a
 ACCOUNT_SID = 'AC94a1765a13973ddfa4420c0d35d6ab4e'
 AUTH_TOKEN = 'e67261b76d3969e46a209a589fab2b69'
 PHONE = '+16266002278'
@@ -44,7 +48,7 @@ JOB_REQUEST = "حاجز على طريق عيون الحرامية"
 @app.route('/')
 @app.route('/catalog')
 def showCategories():
-    new_message = client.messages.create(to=PHONE2, from_=PHONE, body=JOB_REQUEST)
+    #new_message = client.messages.create(to=PHONE2, from_=PHONE, body=JOB_REQUEST)
     return render_template(
         'index.html')
 
