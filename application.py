@@ -16,6 +16,8 @@ import json
 import httplib2
 import requests
 from oauth2client.client import flow_from_clientsecrets, FlowExchangeError
+from setupDB import Location
+
 
 app = Flask(__name__)
 
