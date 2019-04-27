@@ -1,0 +1,68 @@
+<!-- This is the corresponding "starter code" for 04_Hello Map in Udacity and Google's Maps
+API Course, Lesson 1 -->
+<html>
+ <head>
+ <!-- styles put here, but you can include a CSS file and reference it instead! -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <link rel="stylesheet" href="css/app.css">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+ <title> IEEE SYP congress 2018-map / Porto</title>
+ </head>
+ <body>
+   
+        <div class="container-fluid h-100">
+                <div class="row h-100">
+                    <main class="col p-0 navbar-inverse">
+                        <a href class="float-right m-3 navbar-light" data-target="#sidebar" data-toggle="collapse">
+                            <span class="navbar-toggler-icon"></span>
+                        </a>
+                        <div class="content bg-inverse">
+                            <div id="map">
+                            </div>
+                        </div>
+                    </main>
+                    <nav class="col-2 collapse bg-inverse pt-2 h-100 " id="sidebar">
+                        <h6 class="text-white" > IEEE SYP Congress 2018</h4>
+                        <input  data-bind="textInput: searchInput"  placeholder="Search congress venues...">
+                        <ul class="nav flex-column" data-bind="foreach: venuesfilter">
+                                <a href="#"><li class="nav-item text-white " data-bind="text: title, click: $parent.popUp"></li></a>            
+            
+                            </ul>
+                    </nav>
+                </div>
+            </div>
+        
+
+    
+  
+
+
+
+<script
+      src="js/knockout-3.4.2.js" charset="utf-8">
+</script>
+
+<script
+      src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
+</script>
+
+<script async defer
+   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-lNOMppKc0EMiTvdXMY7Xcsa-n7_IMLM&libraries=geometry&v=3&callback=start"
+   onerror="handlingAPI()"> 
+</script>
+
+<script src="js/test.js">
+</script>
+
+<script src="css/app.css">
+</script>
+
+<script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous">
+</script>
+
+
+ </body>
+</html>
+
