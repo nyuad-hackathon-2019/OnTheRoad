@@ -17,7 +17,7 @@ function AppViewModel(){
     request.open("GET", "/static/data.json", false);
     request.send(null)
     var my_JSON_object = JSON.parse(request.responseText);
-    alert (my_JSON_object.najeeb[0]);
+    alert ("مواجهات على طريق عيون الحرامية");
 
     var locations = [
         {title: 'Car Accident', location: {lat:31.447446,lng:35.025766}},
