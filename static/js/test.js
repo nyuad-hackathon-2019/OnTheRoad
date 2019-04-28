@@ -11,20 +11,31 @@ function AppViewModel(){
     var iconurls = {
       'Car Accident': "http://maps.google.com/mapfiles/ms/icons/orange-dot.png",
       'Checkpoint': "http://maps.google.com/mapfiles/ms/icons/purple-dot.png",
-      'Confrontation': "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
+      'Confrontation': "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
+      'Current': "https://1ceflh60yp1iahia1b5kgu14-wpengine.netdna-ssl.com/wp-content/uploads/2017/05/icon-location-100.png",
+
+
     }
     var request = new XMLHttpRequest();
     request.open("GET", "/static/data.json", false);
     request.send(null)
     var my_JSON_object = JSON.parse(request.responseText);
-    alert ("مواجهات على طريق عيون الحرامية");
+    swal ("مواجهات على طريق عيون الحرامية");
 
     var locations = [
         {title: 'Car Accident', location: {lat:31.447446,lng:35.025766}},
         {title: 'Car Accident', location: {lat:32.047791,lng:35.462557}},
         {title: 'Checkpoint', location: {lat:31.603713,lng:35.113804}},
         {title: 'Confrontation', location: {lat:31.799084,lng:35.234699}},
-        {title: 'Checkpoint', location: {lat:32.363947,lng:35.205358}}
+        {title: 'Checkpoint', location: {lat:32.363947,lng:35.205358}},
+        {title: 'Confrontation', location: {lat:32.158490,lng:35.260265}},
+        {title: 'Checkpoint', location: {lat:32.121001,lng:35.257004}}, 
+        {title: 'Car Accident', location: {lat:32.106827,lng:35.255454}},
+        {title: 'Checkpoint', location: {lat:32.063446,lng:35.255395}},
+        {title: 'Confrontation', location: {lat:31.921506,lng:35.247147}},
+        {title: 'Current', location: {lat:32.223826,lng:35.260278}}    
+   
+
       ];
     this.searchInput = ko.observable("");
     this.markers = [];
@@ -51,8 +62,10 @@ function AppViewModel(){
                     '<div>'
                     +'<h4>' + marker.title + '</h4>'
                     + '<div>'
-                    +  '<h6> Time: ' +  '</h6> ' // marker.time +
+                    +  '<h6> Time: ' + 'اجتياح القوات الاسرائيلية لمدينة نابلس' +'</h6> ' // marker.time +
                     +  '<h8> Severity: '+ '</h8> <br>' // marker.severity +
+                    +  '<img src="/staatic/confrontation.jpg">'+
+                    + '<a href="/templates/inputform.html">verify وثق</a>' +
                     //+  '<h8>'+address1+'</h8> <br>'
                     //+  '<h8>'+address2+'</h8> <br>'
                     + '</div>'
@@ -142,13 +155,13 @@ function AppViewModel(){
                 +'<h4>' + locations[i].title + '</h4>'
                 //+'<h4>' + category + '</h4>'
                 + '<div>'
-                +  '<h6> Threat level: </h6> '
-                //+  '<h8>'+address0+'</h8> <br>'
-                //+  '<h8>'+address1+'</h8> <br>'
-                //+  '<h8>'+address2+'</h8> <br>'
+                +  '<h6> Threat level: dangerpus </h6> '
+                +  '<h6>' + 'اجتياح القوات الاسرائيلية لمدينة نابلس' +'</h6> ' // marker.time +
+                +  '<img src="/static/confrontation.jpg">'
+                + '<button style="color:blue" type="button" onclick="swal(\'Thanks for verification\')">verify وثق</button>'
                 + '</div>'
                 + '</div>';
-
+              // 
               largeInfowindow.setContent(content);
               largeInfowindow.open(map, marker);
             }
