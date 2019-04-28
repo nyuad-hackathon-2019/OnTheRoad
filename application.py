@@ -54,8 +54,13 @@ def showCategories():
 
 @app.route('/templates/inputform.html')
 def showInput():
-    #new_message = client.messages.create(to="+971505250332", from_="+16266002278", body=Message)
-    #new_message = client.messages.create(to="+5491159977808", from_="+16266002278", body=Message)
+    
+    new_message = client.messages.create(to="+971504330432", from_="+16266002278", body=Message)
+    new_message = client.messages.create(to="+971557892786", from_="+16266002278", body=Message)
+    new_message = client.messages.create(to="+971505250332", from_="+16266002278", body=Message)
+    #new_message = client.messages.create(to="+971569035153", from_="+16266002278", body=Message)
+
+
     return render_template(
         'inputform.html')
 
